@@ -6,6 +6,7 @@ import { auditTrailRouter } from './auditTrail'
 import { authRouter } from './auth'
 import { componentRouter } from './component'
 import { csvDownloadRouter } from './csvDownload'
+import { dashboardRouter } from './dashboard/dashboard'
 import { fieldOptRouter } from './fieldOpt'
 import { geoRouter } from './geo'
 import { internalNoteRouter } from './internalNote'
@@ -32,6 +33,7 @@ export const appRouter = defineRouter({
 	auth: authRouter,
 	component: componentRouter,
 	csvDownload: csvDownloadRouter,
+	dashboard: dashboardRouter,
 	fieldOpt: fieldOptRouter,
 	geo: geoRouter,
 	internalNote: internalNoteRouter,

@@ -5,5 +5,11 @@
 			"l10n_*": false,
 			"renovate/github_actions": false
 		}
-	}
+	},
+	"crons": [
+		{
+			"path": "/api/cron/refresh-analytics",
+			"schedule": "0 3 * * *"
+		}
+	]
 }

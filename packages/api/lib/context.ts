@@ -3,6 +3,7 @@ import { type CreateNextContextOptions } from '@trpc/server/adapters/next'
 import { type NextApiRequest, type NextApiResponse } from 'next'
 
 import { getServerSession, type Session } from '@weareinreach/auth'
+import { prisma as db } from '@weareinreach/db'
 import { generateId } from '@weareinreach/db/lib/idGen'
 
 export type CreateContextOptions = {
@@ -43,12 +44,16 @@ export const createContext = async (opts?: CreateNextContextOptions) => {
 	// Get the session from the server using the unstable_getServerSession wrapper function
 	const session = (req && res && (await getServerSession({ req, res }))) || null
 
+	const actorId = session?.user?.id ?? 'system'
+
 	return {
 		...createContextInner({
 			session,
 			req,
 			res,
 		}),
+		actorId,
+		db,
 	}
 }
 

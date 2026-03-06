@@ -31,6 +31,7 @@ declare module "nextjs-routes" {
     | StaticRoute<"/api/panel">
     | StaticRoute<"/api/trpc-playground">
     | DynamicRoute<"/api/trpc/[trpc]", { "trpc": string }>
+    | StaticRoute<"/dashboard">
     | DynamicRoute<"/org/[slug]", { "slug": string }>
     | DynamicRoute<"/org/[slug]/[orgLocationId]", { "slug": string; "orgLocationId": string }>
     | DynamicRoute<"/org/[slug]/[orgLocationId]/edit", { "slug": string; "orgLocationId": string }>
