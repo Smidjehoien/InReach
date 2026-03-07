@@ -1,4 +1,5 @@
 import '../../lib/wdyr'
+import 'leaflet/dist/leaflet.css'
 
 import { Space } from '@mantine/core'
 import { Notifications } from '@mantine/notifications'

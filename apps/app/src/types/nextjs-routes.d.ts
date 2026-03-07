@@ -32,7 +32,11 @@ declare module "nextjs-routes" {
     | StaticRoute<"/api/trpc-playground">
     | DynamicRoute<"/api/trpc/[trpc]", { "trpc": string }>
     | StaticRoute<"/dashboard">
+    | StaticRoute<"/dashboard/components/DashboardContents">
     | StaticRoute<"/dashboard/components/DataFreshnessWidget">
+    | StaticRoute<"/dashboard/components/InteractiveMap">
+    | StaticRoute<"/dashboard/components/MapComponent">
+    | StaticRoute<"/dashboard/components/ServiceTreemap">
     | DynamicRoute<"/org/[slug]", { "slug": string }>
     | DynamicRoute<"/org/[slug]/[orgLocationId]", { "slug": string; "orgLocationId": string }>
     | DynamicRoute<"/org/[slug]/[orgLocationId]/edit", { "slug": string; "orgLocationId": string }>
