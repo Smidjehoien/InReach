@@ -8,7 +8,7 @@ const tsconfigGlobs = [
 
 /** @type {import('eslint').ESLint.ConfigData} */
 const config = {
-	plugins: ['codegen', 'turbo', 'node', 'deprecation', /*'import',*/ '@tanstack/query'],
+	plugins: ['codegen', 'turbo', 'node', 'deprecation', 'i18next', /*'import',*/ '@tanstack/query'],
 	extends: [
 		'eslint:recommended',
 		// disable turbo plugin until vercel/turbo#5355 is resolved

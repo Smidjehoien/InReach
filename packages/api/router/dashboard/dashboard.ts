@@ -64,4 +64,46 @@ export const dashboardRouter = defineRouter({
 			totalCountries: Array.isArray(countryCount) ? countryCount.length : 0,
 		}
 	}),
+
+	/**
+	 * Fetches statistics about the freshness of organization data based on the `lastVerified` date.
+	 */
+	getDataHealthStats: protectedProcedure.query(async ({ ctx }) => {
+		const now = new Date()
+		// Set dates for 6 and 12 months ago to create our time buckets
+		const sixMonthsAgo = new Date(new Date().setMonth(now.getMonth() - 6))
+		const twelveMonthsAgo = new Date(new Date().setMonth(now.getMonth() - 12))
+
+		const [verifiedLast6Months, verifiedLast12Months, verifiedOver1Year, neverVerified] =
+			await ctx.db.$transaction([
+				// Orgs verified in the last 6 months
+				ctx.db.organization.count({
+					where: { published: true, deleted: false, lastVerified: { gte: sixMonthsAgo } },
+				}),
+				// Orgs verified between 6 and 12 months ago
+				ctx.db.organization.count({
+					where: {
+						published: true,
+						deleted: false,
+						lastVerified: { lt: sixMonthsAgo, gte: twelveMonthsAgo },
+					},
+				}),
+				// Orgs verified over a year ago
+				ctx.db.organization.count({
+					where: { published: true, deleted: false, lastVerified: { lt: twelveMonthsAgo } },
+				}),
+				// Orgs never verified
+				ctx.db.organization.count({
+					where: { published: true, deleted: false, lastVerified: null },
+				}),
+			])
+
+		// Return data in a format that's ready for our charting library
+		return [
+			{ name: '0-6 Months', count: verifiedLast6Months },
+			{ name: '6-12 Months', count: verifiedLast12Months },
+			{ name: 'Over 1 Year', count: verifiedOver1Year },
+			{ name: 'Never Verified', count: neverVerified },
+		]
+	}),
 })

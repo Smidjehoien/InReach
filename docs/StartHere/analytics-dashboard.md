@@ -156,3 +156,33 @@ To share data with funders and the public, we will create a dedicated, public-fa
 2.  **Build Time:** During a new deployment, Next.js pre-renders the `/impact` page by fetching data from these materialized views, creating a static `impact.html`.
 3.  **User Visit:** A user visits `/impact` and is instantly served the static HTML from Vercel's Edge Network.
 4.  **Revalidation:** After 4 hours, a user visit triggers a background regeneration of the page, pulling the latest data from the materialized views.
+
+---
+
+## Implementation Checklist
+
+### Phase 1: Foundational API & Components
+
+- [x] **API:** Create `dashboard` tRPC router.
+- [x] **API:** Implement `getKpiMetrics` endpoint.
+- [x] **UI:** Create `KpiCards` presentational component.
+- [x] **Page:** Create initial `/dashboard` page and display KPIs.
+- [x] **API:** Implement `getDataHealthStats` endpoint for the Data Freshness chart.
+- [x] **UI:** Create "Data Freshness" chart component.
+- [ ] **Security:** Secure `/dashboard` page for admin users only.
+
+### Phase 2: Internal Dashboard ("The Floodlight")
+
+- [ ] **Data Health:** Display "Data Freshness" chart.
+- [ ] **Data Health:** Implement and display "Content Funnel" chart.
+- [ ] **Data Health:** Implement and display "Migration Review" counter.
+- [ ] **Geo & Service:** Implement `getGeoHeatmapData` and `getServiceDistribution` endpoints.
+- [ ] **Geo & Service:** Implement interactive map and "Services by Category" treemap components.
+- [ ] **User Engagement:** Implement endpoints for user engagement statistics.
+- [ ] **User Engagement:** Implement "New Users & Reviews" and "Top Saved Resources" charts.
+
+### Phase 3: Fundraising Dashboard & Exports
+
+- [ ] **Public Page:** Create public `/impact` page using SSG/ISR.
+- [ ] **Fundraising:** Implement "Gap Map," "Trust Meter," and "Impact Calculator" visualizations.
+- [ ] **CSV Exports:** Implement `getDynamicReport` endpoint and refactor existing download buttons.

@@ -1,7 +1,8 @@
 /** @type {import('eslint').ESLint.ConfigData} */
 const config = {
 	extends: ['./base.js'],
-	plugins: ['import'],
+	// This correctly merges the plugins from base.js with the 'import' plugin.
+	plugins: ['codegen', 'turbo', 'node', 'deprecation', 'i18next', '@tanstack/query', 'import'],
 	rules: {
 		'no-useless-catch': 'warn',
 	},

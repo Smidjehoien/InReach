@@ -101,6 +101,7 @@
 		"react-hook-form": "7.53.1",
 		"react-hook-form-mantine": "2.0.0",
 		"react-i18next": "15.1.0",
+		"recharts": "3.8.0",
 		"zod": "3.23.8"
 	},
 	"devDependencies": {
@@ -117,6 +118,7 @@
 		"@types/node": "20.17.0",
 		"@types/react": "18.3.12",
 		"@types/react-dom": "18.3.1",
+		"@types/recharts": "2.0.1",
 		"@typescript-eslint/eslint-plugin": "7.18.0",
 		"@typescript-eslint/parser": "7.18.0",
 		"@weareinreach/config": "workspace:*",

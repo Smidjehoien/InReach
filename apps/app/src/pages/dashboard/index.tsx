@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { KpiCards } from '@weareinreach/ui/components/dashboard/KpiCards'
 import { getServerSideTranslations } from '~app/utils/i18n'
 
+import DataFreshnessWidget from './components/DataFreshnessWidget'
 import { api } from '../../utils/api'
 
 // This component contains all the logic and will only be rendered on the client
@@ -31,6 +32,9 @@ function DashboardContents() {
 				<Text c='red'>An error occurred while fetching dashboard metrics: {error.message}</Text>
 			)}
 			{data && <KpiCards data={data} />}
+
+			{/* Data Health Section */}
+			<DataFreshnessWidget />
 		</Stack>
 	)
 }
