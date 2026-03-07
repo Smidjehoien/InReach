@@ -34,6 +34,7 @@ declare module "nextjs-routes" {
     | StaticRoute<"/dashboard">
     | StaticRoute<"/dashboard/components/DashboardContents">
     | StaticRoute<"/dashboard/components/DataFreshnessWidget">
+    | StaticRoute<"/dashboard/components/FundraisingView">
     | StaticRoute<"/dashboard/components/InteractiveMap">
     | StaticRoute<"/dashboard/components/MapComponent">
     | StaticRoute<"/dashboard/components/ServiceTreemap">

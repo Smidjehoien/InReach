@@ -5,6 +5,7 @@ import { KpiCards } from '@weareinreach/ui/components/dashboard/KpiCards'
 import { api } from '~app/utils/api'
 
 import DataFreshnessWidget from './DataFreshnessWidget'
+import FundraisingView from './FundraisingView'
 import InteractiveMap from './InteractiveMap'
 import ServiceTreemap from './ServiceTreemap'
 
@@ -50,6 +51,14 @@ export default function DashboardContents() {
 					<ServiceTreemap />
 				</Grid.Col>
 			</Grid>
+
+			{/* Section: Fundraising Impact  */}
+			<Stack>
+				{/* eslint-disable-next-line i18next/no-literal-string */}
+				<Title order={3}>Fundraising Impact</Title>
+				<FundraisingView />
+				{/* TODO: Add fundraising widgets here */}
+			</Stack>
 		</Stack>
 	)
 }

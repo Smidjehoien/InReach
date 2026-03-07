@@ -173,16 +173,25 @@ To share data with funders and the public, we will create a dedicated, public-fa
 
 ### Phase 2: Internal Dashboard ("The Floodlight")
 
-- [ ] **Data Health:** Display "Data Freshness" chart.
+- [x] **Data Health:** Display "Data Freshness" chart.
 - [ ] **Data Health:** Implement and display "Content Funnel" chart.
 - [ ] **Data Health:** Implement and display "Migration Review" counter.
-- [ ] **Geo & Service:** Implement `getGeoHeatmapData` and `getServiceDistribution` endpoints.
-- [ ] **Geo & Service:** Implement interactive map and "Services by Category" treemap components.
+- [x] **Geo & Service:** Implement `getGeoHeatmapData` and `getServiceDistribution` endpoints.
+- [x] **Geo & Service:** Implement interactive map and "Services by Category" treemap components.
+- [ ] **Integration:** Connect `InteractiveMap` component to `getGeoHeatmapData` endpoint (replace `FAKE_GEO_DATA`).
+- [ ] **Integration:** Connect `ServiceTreemap` component to `getServiceDistribution` endpoint (replace `FAKE_DATA`).
 - [ ] **User Engagement:** Implement endpoints for user engagement statistics.
 - [ ] **User Engagement:** Implement "New Users & Reviews" and "Top Saved Resources" charts.
 
 ### Phase 3: Fundraising Dashboard & Exports
 
 - [ ] **Public Page:** Create public `/impact` page using SSG/ISR.
-- [ ] **Fundraising:** Implement "Gap Map," "Trust Meter," and "Impact Calculator" visualizations.
+- [x] **Fundraising:** Implement "Gap Map," "Trust Meter," and "Impact Calculator" visualizations.
+- [ ] **API:** Implement `getFundraisingStats` endpoint (reviews, verification counts).
+- [ ] **Integration:** Connect `FundraisingView` component to `getFundraisingStats` endpoint (replace `FAKE_REVIEWS_DATA` and `FAKE_VERIFICATION_DATA`).
 - [ ] **CSV Exports:** Implement `getDynamicReport` endpoint and refactor existing download buttons.
+
+To successfully prompt Gemini to complete the remaining tasks (like the API endpoints), it is necessary to provide this document plus two critical pieces of context:
+
+The Database Schema (schema.prisma): The document mentions tables like OrgReview, ServiceCategory, and UserSavedList, but without the actual Prisma schema, Gemini won't know the field names or relationships required to write the tRPC queries.
+Existing Router Structure: To add new endpoints (like getFundraisingStats), Gemini needs to see where the tRPC routers are located (e.g., packages/api/src/router/dashboard.ts) to match the coding style and imports.
