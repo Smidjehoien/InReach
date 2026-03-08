@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 
 import { getServerSideTranslations } from '~app/utils/i18n'
 
-import DashboardContents from './components/DashboardContents'
+import DashboardContents from '../../components/dashboard/DashboardContents'
 
 /**
  * Admin Dashboard Page Accessible at: http://localhost:3000/dashboard

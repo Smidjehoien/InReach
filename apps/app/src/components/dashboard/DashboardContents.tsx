@@ -2,16 +2,29 @@ import { Grid, Group, Loader, Stack, Text, Title } from '@mantine/core'
 import React from 'react'
 
 import { KpiCards } from '@weareinreach/ui/components/dashboard/KpiCards'
-import { api } from '~app/utils/api'
+// import { api } from '~app/utils/api'
 
 import DataFreshnessWidget from './DataFreshnessWidget'
 import FundraisingView from './FundraisingView'
 import InteractiveMap from './InteractiveMap'
 import ServiceTreemap from './ServiceTreemap'
 
+const FAKE_KPI_DATA = {
+	totalOrgs: 1250,
+	totalVerifiedOrgs: 850,
+	totalServices: 3200,
+	totalCountries: 15,
+	totalUsers: 5400,
+	totalReviews: 1250,
+}
+
 // This component contains all the logic and will only be rendered on the client
 export default function DashboardContents() {
-	const { data, isLoading, error } = api.dashboard.getKpiMetrics.useQuery()
+	// TODO: Implement and call getKpiMetrics endpoint
+	// const { data, isLoading, error } = api.dashboard.getKpiMetrics.useQuery()
+	const data = FAKE_KPI_DATA
+	const isLoading = false
+	const error = null as { message: string } | null
 
 	return (
 		<Stack spacing='lg'>
